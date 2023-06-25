@@ -1,0 +1,239 @@
+.aboutVideo{
+    width: 100vw;
+    height: 100vh;
+    /* object-fit: cover; */
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.topLinks{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.contact{
+    display: inline-block;
+    padding: 15px 30px;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    text-decoration: none;
+    font-size: 12px;
+    font-family: 'AlphaCentauri', sans-serif;
+    overflow: hidden;
+    transition: 0.2s;
+    text-shadow:
+        0 0 7px #ffffff,
+        0 0 10px #F6851A,
+        0 0 151px #F6851A;
+    position: absolute !important;
+    right:22vw;   
+    top:6vh;
+}
+
+.glowAndlarge:hover{
+    cursor: pointer;
+    transform:scale(0.7,0.7);
+    transition: 0.3s linear;
+}
+
+.css-h4y409-MuiList-root {
+    font-family: 'Times New Roman', Times, serif;
+    padding: 1rem !important;
+}
+
+.connectWalletBlock {
+    display: inline-block;
+    padding: 15px 30px;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    text-decoration: none;
+    font-size: 16px;
+    font-family: 'AlphaCentauri', sans-serif;
+    overflow: hidden;
+    transition: 0.2s;
+    /* text-shadow:
+        0 0 7px #ffffff,
+        0 0 10px #F6851A,
+        0 0 151px #F6851A; */
+    position: absolute ;
+    /* right:0%;   
+    top:0%; */
+    text-align: center;
+    animation: fadeInAnimationInfo ease 3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeInAnimationInfo {
+    0% {
+        opacity: 0;
+    }
+    
+    100% {
+        opacity: 1;
+     }
+}
+
+.ok_form{
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    opacity: 0.8;
+  }
+  .ok_form_input{
+    background-color: transparent;
+    margin:10px;
+    height: 40px;
+    border-radius: 3px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    text-decoration: none;
+    font-size: 24px;
+    color:white !important;
+  }
+
+  .welcome_input{
+    background-color: transparent;
+    margin:10px;
+    height: 40px;
+    border-radius: 3px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    text-decoration: none;
+    font-family: 'AlphaCentauri', sans-serif;
+    font-size: 24px;
+    text-align: center;
+    /* text-shadow:
+        0 0 7px #ffffff,
+        0 0 10px #F6851A,
+        0 0 151px #F6851A; */
+    color:white !important;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 0;
+    animation: typing;
+    animation-duration: 6s;
+    animation-timing-function: steps(30, end);
+    animation-fill-mode: forwards;
+    animation-delay: 1000ms;
+    background-color: transparent;
+  }
+
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+
+  .start_button{
+    background-color: transparent;
+    margin:20px;
+    /* width: 30%; */
+    /* height: 35px; */
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    text-decoration: none;
+    font-size: 24px;
+    text-align: center;
+    font-family: 'AlphaCentauri', sans-serif;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    text-shadow:
+        0 0 7px #ffffff,
+        0 0 10px #F6851A,
+        0 0 151px #F6851A;
+    color: white;
+    animation: fadeInAnimationStart ease 12s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes fadeInAnimationStart {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+     }
+}
+
+  .start_button:hover{
+    color: white;
+    background: transparent;
+    box-shadow: 0 0 10px #F6851A, 0 0 40px #F6851A, 0 0 80px #F6851A;
+    cursor: pointer;
+}
+
+  .ok_form_input:focus{
+      color: #adb5bd;
+      background: transparent;
+      box-shadow: 0 0 10px #F6851A, 0 0 40px #F6851A, 0 0 80px #F6851A;
+  }
+  
+  .ok_form_buttton{
+    background-color: transparent;
+    margin:10px;
+    width: 50%;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    text-decoration: none;
+    font-size: 24px;
+    text-align: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    color: #caccce;
+  }
+  .ok_form_buttton:hover{
+    color: #adb5bd;
+    background: transparent;
+    box-shadow: 0 0 10px #F6851A, 0 0 40px #F6851A, 0 0 80px #F6851A;
+    cursor: pointer;
+  }
+
+
+
+@media (max-width: 500px) {
+    .topLinks{
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        margin-top: -42.5vh;
+        justify-content: center;
+    }
+
+    img{
+        height: 25px;
+        width:  50px;
+    }
+   
+    .connectWalletBlock {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        color: #ffffff;
+        text-transform: uppercase;
+        letter-spacing: 5px;
+        text-decoration: none;
+        font-size: 16px;
+        font-family: 'AlphaCentauri', sans-serif;
+        transition: 0.2s;
+        text-shadow:
+            0 0 7px #ffffff,
+            0 0 10px #F6851A,
+            0 0 151px #F6851A;
+    }
+}
+
+.info_form{
+    width: 100%;
+    background-color: transparent;
+}
