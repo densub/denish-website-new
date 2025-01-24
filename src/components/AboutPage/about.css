@@ -46,8 +46,12 @@
 }
 
 .connectWalletBlock {
-    display: inline-block;
-    padding: 15px 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+    padding: 0 20%;
     color: #ffffff;
     text-transform: uppercase;
     letter-spacing: 4px;
@@ -56,17 +60,16 @@
     font-family: 'AlphaCentauri', sans-serif;
     overflow: hidden;
     transition: 0.2s;
-    /* text-shadow:
-        0 0 7px #ffffff,
-        0 0 10px #F6851A,
-        0 0 151px #F6851A; */
-    position: absolute ;
-    /* right:0%;   
-    top:0%; */
-    text-align: center;
     animation: fadeInAnimationInfo ease 3s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
+}
+
+.connectWalletBlock p {
+    color: white;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin: 0;
 }
 
 @keyframes fadeInAnimationInfo {
@@ -237,3 +240,394 @@
     width: 100%;
     background-color: transparent;
 }
+
+.text-content {
+  z-index: 2;
+  position: relative;
+  background-color: transparent;
+  padding: 1rem;
+  border-radius: 8px;
+  max-width: 800px;
+  margin: 0 auto;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.fade-out {
+  opacity: 0;
+}
+
+.fade-in {
+  opacity: 1;
+}
+
+.navigation-arrows {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.nav-arrow {
+  font-size: 2rem;
+  color: #F6851A;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-shadow: 0 0 10px rgba(246, 133, 26, 0.5);
+  pointer-events: auto;
+}
+
+.nav-arrow.left {
+  margin-right: auto;
+}
+
+.nav-arrow.right {
+  margin-left: 0;
+}
+
+.nav-arrow:hover {
+  transform: scale(1.2);
+  text-shadow: 0 0 20px rgba(246, 133, 26, 0.8);
+}
+
+.diagram {
+  margin: 2rem auto;
+  height: 200px;
+  width: 200px;
+  position: relative;
+}
+
+.quantum-diagram {
+  background: linear-gradient(45deg, #F6851A, transparent);
+  border-radius: 50%;
+  animation: quantum-pulse 2s infinite;
+}
+
+.neural-diagram {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.neural-diagram::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    45deg,
+    #F6851A22,
+    #F6851A22 10px,
+    transparent 10px,
+    transparent 20px
+  );
+}
+
+.security-diagram {
+  border: 2px solid #F6851A;
+  animation: security-breach 3s infinite;
+}
+
+@keyframes quantum-pulse {
+  0% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.1); opacity: 0.8; }
+  100% { transform: scale(1); opacity: 0.5; }
+}
+
+@keyframes security-breach {
+  0% { border-color: #F6851A; }
+  50% { border-color: #ff0000; }
+  100% { border-color: #F6851A; }
+}
+
+/* CSS for New Diagrams */
+
+/* Diagram for AI and Quantum Convergence (future-diagram) */
+.future-diagram {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    height: 250px;
+    margin: 2rem auto;
+    border: 2px dashed #F6851A;
+    border-radius: 50%;
+    position: relative;
+    animation: convergence-glow 3s infinite;
+  }
+  
+  .future-diagram::before {
+    content: "";
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    border: 2px solid #F6851A;
+    border-radius: 50%;
+    animation: pulse 2s infinite alternate;
+  }
+  
+  @keyframes convergence-glow {
+    0% {
+      box-shadow: 0 0 10px #F6851A;
+    }
+    50% {
+      box-shadow: 0 0 20px #F6851A, 0 0 40px #F6851A;
+    }
+    100% {
+      box-shadow: 0 0 10px #F6851A;
+    }
+  }
+  
+  @keyframes pulse {
+    0% {
+      transform: scale(0.9);
+      opacity: 0.7;
+    }
+    100% {
+      transform: scale(1.1);
+      opacity: 1;
+    }
+  }
+  
+  /* Diagram for Quantum Evolution (quantum-evolution-diagram) */
+  .quantum-evolution-diagram {
+    width: 300px;
+    height: 300px;
+    position: relative;
+    margin: 2rem auto;
+    border-radius: 50%;
+    background: radial-gradient(circle, #F6851A, #000);
+    animation: rotate-diagram 6s linear infinite;
+  }
+  
+  .quantum-evolution-diagram::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80%;
+    height: 80%;
+    border-radius: 50%;
+    background: transparent;
+    border: 3px dashed rgba(255, 255, 255, 0.7);
+    transform: translate(-50%, -50%);
+    animation: pulse-ring 3s infinite;
+  }
+  
+  @keyframes rotate-diagram {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  @keyframes pulse-ring {
+    0% {
+      opacity: 0.8;
+      transform: scale(1);
+    }
+    100% {
+      opacity: 0.4;
+      transform: scale(1.2);
+    }
+  }
+  
+  /* Diagram for AI's Impact (ai-impact-diagram) */
+  .ai-impact-diagram {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+    width: 300px;
+    height: 300px;
+    margin: 2rem auto;
+    background: #000;
+    position: relative;
+    border: 2px solid #F6851A;
+  }
+  
+  .ai-impact-diagram div {
+    width: 50px;
+    height: 50px;
+    background: #F6851A;
+    border-radius: 50%;
+    animation: fade-and-scale 4s infinite alternate;
+  }
+  
+  .ai-impact-diagram div:nth-child(odd) {
+    animation-delay: 1s;
+  }
+  
+  @keyframes fade-and-scale {
+    0% {
+      transform: scale(0.8);
+      opacity: 0.6;
+    }
+    100% {
+      transform: scale(1.2);
+      opacity: 1;
+    }
+  }
+  
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .connectWalletBlock {
+    padding: 0 1rem;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 14px;
+  }
+
+  .text-content {
+    background-color: transparent;
+    padding: 1rem;
+  }
+
+  .text-content p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  }
+
+  .navigation-arrows {
+    padding: 0 1rem;
+    bottom: 2rem;
+    top: auto;
+    transform: none;
+  }
+
+  .nav-arrow {
+    font-size: 1.5rem;
+    padding: 0.5rem;
+  }
+
+  /* Adjust diagrams for mobile */
+  .diagram {
+    width: 150px;
+    height: 150px;
+    margin: 1rem auto;
+  }
+
+  .future-diagram {
+    width: 180px;
+    height: 180px;
+  }
+
+  .quantum-evolution-diagram {
+    width: 200px;
+    height: 200px;
+  }
+
+  .ai-impact-diagram {
+    width: 200px;
+    height: 200px;
+    grid-gap: 10px;
+  }
+
+  .ai-impact-diagram div {
+    width: 30px;
+    height: 30px;
+  }
+
+  /* Modal adjustments for mobile */
+  .info_form {
+    padding: 1rem;
+  }
+
+  .welcome_input {
+    font-size: 18px;
+    padding: 0.5rem;
+  }
+
+  .start_button {
+    font-size: 18px;
+    padding: 0.5rem 1rem;
+  }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+  .connectWalletBlock {
+    padding: 0 0.5rem;
+  }
+
+  .text-content {
+    background-color: transparent;
+  }
+  
+  .text-content p {
+    font-size: 0.8rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  }
+
+  .nav-arrow {
+    font-size: 1.2rem;
+  }
+
+  .diagram {
+    width: 120px;
+    height: 120px;
+  }
+
+  .future-diagram {
+    width: 150px;
+    height: 150px;
+  }
+
+  .quantum-evolution-diagram {
+    width: 160px;
+    height: 160px;
+  }
+
+  .ai-impact-diagram {
+    width: 160px;
+    height: 160px;
+    grid-gap: 8px;
+  }
+
+  .ai-impact-diagram div {
+    width: 25px;
+    height: 25px;
+  }
+
+  .welcome_input {
+    font-size: 16px;
+  }
+
+  .start_button {
+    font-size: 16px;
+  }
+}
+
+/* Ensure video background covers screen properly */
+.aboutVideo {
+  object-fit: cover;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+/* Adjust popup/modal for mobile */
+.popup-content {
+  width: 90% !important;
+  max-width: 400px;
+  margin: auto;
+  padding: 1rem !important;
+}
+
+/* Enhance text readability without background */
+.text-content p {
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  font-family: 'AlphaCentauri', sans-serif;
+  letter-spacing: 1px;
+}
+  
