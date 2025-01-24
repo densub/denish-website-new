@@ -33,8 +33,8 @@ const sendEmail = (e) => {
    
   const renderSecondPageContent = () => (
     <>
-    <div className="alien" onClick={() => setOpenSocial(true)}>
-        <div className="background_message_button" contentStyle={{backgroundColor:"black", opacity: "85%"}} position="right center">
+    <div className="alien-container">
+      <div className="alien" onClick={() => setOpenSocial(true)}>
         <Popup 
           open={openSocial} 
           onClose={() => setOpenSocial(false)}
@@ -58,10 +58,9 @@ const sendEmail = (e) => {
             </a>
           </div>
         </Popup>
-        </div>
-        
-
+      </div>
     </div>
+        
     <div className="background_message_button" id="myForm">
             {emailSendSuccess || openSocial || openContactForm ? <></>: <a className="glow" onClick={openDetails}>Connect Beings</a>}
           <Popup 

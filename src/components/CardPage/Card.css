@@ -22,8 +22,18 @@
     text-overflow: ellipsis;
 }
 
-.alien {
+/* Add new alien container class */
+.alien-container {
   position: absolute;
+  top: 48px;  /* Just 2 inches from top */
+  right: 48px; /* Just 2 inches from right */
+  z-index: 2;
+  cursor: pointer;
+}
+
+/* Update alien positioning to be relative to its container */
+.alien {
+  position: relative; /* Change from absolute to relative */
   background-color: #f9f9f9;
   width: 75px;
   height: 75px;
@@ -35,10 +45,8 @@
   border-top-right-radius: 200px;
   -webkit-box-shadow: 0 0 15px 15px rgba(0, 0, 0, 0.5);
   box-shadow: 0 0 15px 15px rgba(235, 126, 9, 0.5);
-  top: 3%;
-  right: 2%;
-  z-index: 2;
 }
+
 .alien:before {
   content: "";
   position: absolute;
@@ -300,11 +308,17 @@ textarea.info_form_input {
     padding: 12px 24px;
   }
 
+  .alien-container {
+    position: absolute;
+    top: 48px;  /* Just 2 inches from top */
+    right: 48px; /* Just 2 inches from right */
+    z-index: 2;
+    cursor: pointer;
+}
+  
   .alien {
     width: 50px;
     height: 50px;
-    top: 2%;
-    right: 2%;
   }
 
   .alien:before,
@@ -404,8 +418,8 @@ textarea.info_form_input {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   z-index: 0;
   background-color: #000000;
 }
@@ -492,15 +506,30 @@ textarea.info_form_input {
 /* Mobile responsiveness for the pattern */
 @media (max-width: 768px) {
   .geometric-pattern-card {
-    width: 300px;
-    height: 300px;
+    width: 100vw;
+    height: 100vh;
   }
 
-  .rectangle-card:nth-child(1) { width: 300px; height: 300px; }
-  .rectangle-card:nth-child(2) { width: 240px; height: 240px; }
-  .rectangle-card:nth-child(3) { width: 180px; height: 180px; }
-  .rectangle-card:nth-child(4) { width: 120px; height: 120px; }
-  .rectangle-card:nth-child(5) { width: 60px; height: 60px; }
+  .rectangle-card:nth-child(1) { 
+    width: 400px; 
+    height: 400px; 
+  }
+  .rectangle-card:nth-child(2) { 
+    width: 300px; 
+    height: 300px; 
+  }
+  .rectangle-card:nth-child(3) { 
+    width: 200px; 
+    height: 200px; 
+  }
+  .rectangle-card:nth-child(4) { 
+    width: 100px; 
+    height: 100px; 
+  }
+  .rectangle-card:nth-child(5) { 
+    width: 50px; 
+    height: 50px; 
+  }
 }
 
 /* Social media popup styles */
@@ -571,5 +600,29 @@ textarea.info_form_input {
   .social-icon {
     width: 30px;
     height: 30px;
+  }
+}
+
+/* Add smaller screen size adjustments */
+@media (max-width: 480px) {
+  .rectangle-card:nth-child(1) { 
+    width: 300px; 
+    height: 300px; 
+  }
+  .rectangle-card:nth-child(2) { 
+    width: 225px; 
+    height: 225px; 
+  }
+  .rectangle-card:nth-child(3) { 
+    width: 150px; 
+    height: 150px; 
+  }
+  .rectangle-card:nth-child(4) { 
+    width: 75px; 
+    height: 75px; 
+  }
+  .rectangle-card:nth-child(5) { 
+    width: 40px; 
+    height: 40px; 
   }
 }
