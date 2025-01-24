@@ -783,27 +783,47 @@
     margin-bottom: 0.75rem;
   }
   
-  .welcome_input {
-    padding: 0 1rem;
+  .access-granted, .scan-complete {
+    font-size: 21px; /* Reduced from 28px by 25% */
+    margin-bottom: 12px;
   }
   
-  .text-content p {
-    padding: 0 1rem;
+  .loading, .status {
+    font-size: 18px; /* Reduced from 24px by 25% */
+    margin-bottom: 12px;
+  }
+  
+  .entity-type, .primary-function, .mission {
+    font-size: 18px; /* Reduced from 24px by 25% */
+    margin-bottom: 12px;
   }
 }
 
+/* Even smaller for very small devices */
 @media (max-width: 480px) {
   .welcome_input span, .text-content span {
     font-size: 2vh;
     margin-bottom: 0.5rem;
   }
   
-  .welcome_input {
-    padding: 0 0.5rem;
+  .access-granted, .scan-complete {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .loading, .status {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  .entity-type, .primary-function, .mission {
+    font-size: 16px;
+    margin-bottom: 10px;
   }
   
   .text-content p {
-    padding: 0 0.5rem;
+    font-size: 14px;
+    line-height: 1.4;
   }
 }
 
@@ -905,7 +925,7 @@
               0 0 40px rgba(0, 255, 0, 0.3);
 }
 
-/* Mobile responsiveness */
+/* Mobile responsiveness for terminal */
 @media (max-width: 768px) {
   .terminal-container {
     width: 95%;
@@ -913,18 +933,43 @@
   }
   
   .access-granted {
-    font-size: 24px;
-    margin-bottom: 15px;
+    font-size: 21px; /* Reduced from 28px by 25% */
+    margin-bottom: 12px;
   }
   
   .loading, .warning {
-    font-size: 20px;
-    margin-bottom: 15px;
+    font-size: 18px; /* Reduced from 24px by 25% */
+    margin-bottom: 12px;
   }
   
   .proceed-button {
-    font-size: 20px;
-    padding: 12px 24px;
+    font-size: 18px; /* Reduced from 24px by 25% */
+    padding: 10px 20px;
+    margin-top: 20px;
+  }
+}
+
+/* Even smaller for very small devices */
+@media (max-width: 480px) {
+  .terminal-container {
+    width: 95%;
+    padding: 15px;
+  }
+  
+  .access-granted {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .loading, .warning {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  .proceed-button {
+    font-size: 16px;
+    padding: 8px 16px;
+    margin-top: 15px;
   }
 }
 
@@ -993,5 +1038,16 @@
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
+}
+
+@media screen and (max-width: 768px) {
+    .scan-complete,
+    .entity-type,
+    .primary-function,
+    .mission {
+        font-size: 75%; /* Reduces font size to 75% of original size */
+        line-height: 1.4;
+        margin: 5px 0;
+    }
 }
   

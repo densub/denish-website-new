@@ -35,11 +35,29 @@ const sendEmail = (e) => {
     <>
     <div className="alien" onClick={() => setOpenSocial(true)}>
         <div className="background_message_button" contentStyle={{backgroundColor:"black", opacity: "85%"}} position="right center">
-        <Popup  open={openSocial} onClose={()=>setOpenSocial(false)}>
-            <a target="_blank" href="https://twitter.com/denishthetics"><img src={twitter}></img></a>
-            <a target="_blank" href="https://github.com/densub"><img src={github}></img></a>
-            <a target="_blank" href="https://www.linkedin.com/in/subedidenish"><img src={linkedin}></img></a>
-         </Popup>
+        <Popup 
+          open={openSocial} 
+          onClose={() => setOpenSocial(false)}
+          contentStyle={{
+            background: "rgba(246, 133, 26, 0.1)",
+            border: "1px solid #F6851A",
+            boxShadow: "0 0 30px rgba(246, 133, 26, 0.2)"
+          }}
+          className="social-popup"
+          position="center center"
+        >
+          <div className="social-icons">
+            <a target="_blank" href="https://twitter.com/denishthetics">
+              <img src={twitter} className="social-icon" alt="Twitter" />
+            </a>
+            <a target="_blank" href="https://github.com/densub">
+              <img src={github} className="social-icon" alt="GitHub" />
+            </a>
+            <a target="_blank" href="https://www.linkedin.com/in/subedidenish">
+              <img src={linkedin} className="social-icon" alt="LinkedIn" />
+            </a>
+          </div>
+        </Popup>
         </div>
         
 
