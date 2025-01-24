@@ -46,23 +46,61 @@ const sendEmail = (e) => {
     </div>
     <div className="background_message_button" id="myForm">
             {emailSendSuccess || openSocial || openContactForm ? <></>: <a className="glow" onClick={openDetails}>Connect Beings</a>}
-          <Popup className="social" open={openContactForm} onClose={()=>setOpen(false)} contentStyle={{backgroundColor:"black", opacity: "85%"}} position="right center">
-              <div>
-                <form className="info_form" ref={form} onSubmit={sendEmail}>
-                  <input className="info_form_input" type="text" name="name" id="name" placeholder="Tag" required/>
-                  <input className="info_form_input" type="email" name="email" id="email" placeholder="Email" required/>
-                  <input className="info_form_input" type="text" name="subject" id="subject" placeholder="Subject" required/>
-                  <textarea className="info_form_input" type="text" name="message" id="message" placeholder="Message..." required/>
-                  <input className="info_form_button" type="submit" value="Send Signal"/>
-                </form>
-              </div>
-         </Popup>
+          <Popup 
+            className="social" 
+            open={openContactForm} 
+            onClose={() => setOpen(false)} 
+            position="center center"
+          >
+            <form className="info_form" ref={form} onSubmit={sendEmail}>
+              <input 
+                className="info_form_input" 
+                type="text" 
+                name="name" 
+                placeholder="Tag" 
+                required
+              />
+              <input 
+                className="info_form_input" 
+                type="email" 
+                name="email" 
+                placeholder="Email" 
+                required
+              />
+              <input 
+                className="info_form_input" 
+                type="text" 
+                name="subject" 
+                placeholder="Subject" 
+                required
+              />
+              <textarea 
+                className="info_form_input" 
+                name="message" 
+                placeholder="Message..." 
+                required
+              />
+              <button type="submit" className="info_form_button">
+                Send Signal
+              </button>
+            </form>
+          </Popup>
     </div> 
     <div>
-          <Popup open={emailSendSuccess} onClose={()=>setEmailSendSuccess(false)} contentStyle={{backgroundColor:"black", opacity: "85%"}} position="right center">
-              <div>
-                <a className="successMessage">Communication Established</a>
-              </div>
+          <Popup 
+            open={emailSendSuccess} 
+            onClose={() => setEmailSendSuccess(false)} 
+            contentStyle={{
+                backgroundColor: "rgba(0, 0, 0, 0.95)",
+                border: "2px solid #32CD32",
+                boxShadow: "0 0 30px rgba(50, 205, 50, 0.3)"
+            }} 
+            className="success"
+            position="center center"
+          >
+            <div className="successMessage">
+                Communication Established
+            </div>
          </Popup>
     </div>
     </>
@@ -70,7 +108,18 @@ const sendEmail = (e) => {
 
       return (
         <div className = "cardContainer">
-            <video className="cardVideo" playsInline data-keepplaying autoPlay loop muted> <source src={card} type="video/mp4" ></source></video>
+            {/* Remove this video element
+            <video className="cardVideo" playsInline data-keepplaying autoPlay loop muted>
+              <source src={card} type="video/mp4"></source>
+            </video>
+            */}
+            <div className="geometric-pattern-card">
+              <div className="rectangle-card"></div>
+              <div className="rectangle-card"></div>
+              <div className="rectangle-card"></div>
+              <div className="rectangle-card"></div>
+              <div className="rectangle-card"></div>
+            </div>
             {renderSecondPageContent()}
         </div>
       )

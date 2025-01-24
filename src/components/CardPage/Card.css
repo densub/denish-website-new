@@ -2,20 +2,24 @@
     position: relative;
     display: inline-block;
     padding: 15px 30px;
-    color: #ffffff;
+    background: transparent;
+    color: #F6851A;
+    border: 1px solid #F6851A;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Courier New', monospace;
+    font-size: 24px;
     text-transform: uppercase;
-    letter-spacing: 4px;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px #F6851A(255, 255, 0, 0.7),
+                0 0 20px #F6851A(255, 255, 0, 0.5);
+    opacity: 0;
+    animation: fadeInButton 1s ease forwards;
     text-decoration: none;
-    font-size: 4vh;
-    font-family: 'AlphaCentauri', sans-serif;
+    white-space: nowrap;
+    max-width: 90%;
     overflow: hidden;
-    transition: 0.2s;
-    /* text-shadow:
-      0 0 7px #ffffff,
-      0 0 10px #F6851A,
-      0 0 151px #F6851A; */
-    text-shadow: rgba(253, 133, 5, 0.952) 1px 0 10px;
-    background-color: transparent;
+    text-overflow: ellipsis;
 }
 
 .alien {
@@ -32,7 +36,8 @@
   -webkit-box-shadow: 0 0 15px 15px rgba(0, 0, 0, 0.5);
   box-shadow: 0 0 15px 15px rgba(235, 126, 9, 0.5);
   top: 3%;
-  right: 2%
+  right: 2%;
+  z-index: 2;
 }
 .alien:before {
   content: "";
@@ -69,25 +74,54 @@
 }
 
 .successMessage {
-  position: relative;
-    display: inline-block;
-    padding: 15px 30px;
-    color: #32891a;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 30px;
+    width: 100%;
+    color: #32CD32; /* Brighter green */
     text-transform: uppercase;
-    letter-spacing: 4px;
+    letter-spacing: 2px;
     text-decoration: none;
-    font-size: 4vh;
-    font-family: 'AlphaCentauri', sans-serif;
-    overflow: hidden;
-    transition: 0.2s;
+    font-family: 'Courier New', monospace;
+    font-size: 28px;
+    font-weight: bold;
     background-color: transparent;
-    animation: blinker 1s linear infinite;
+    text-shadow: 0 0 10px rgba(50, 205, 50, 0.7),
+                 0 0 20px rgba(50, 205, 50, 0.5);
+    animation: successBlink 1.5s ease-in-out infinite;
+    white-space: normal; /* Allow text to wrap */
+    text-align: center;
 }
 
-@keyframes blinker {
-  50% {
-    opacity: 0;
-  }
+@keyframes successBlink {
+    0% {
+        opacity: 1;
+        text-shadow: 0 0 10px rgba(50, 205, 50, 0.7),
+                     0 0 20px rgba(50, 205, 50, 0.5);
+    }
+    50% {
+        opacity: 0.7;
+        text-shadow: 0 0 15px rgba(50, 205, 50, 0.9),
+                     0 0 30px rgba(50, 205, 50, 0.7),
+                     0 0 45px rgba(50, 205, 50, 0.5);
+    }
+    100% {
+        opacity: 1;
+        text-shadow: 0 0 10px rgba(50, 205, 50, 0.7),
+                     0 0 20px rgba(50, 205, 50, 0.5);
+    }
+}
+
+.popup-content.success {
+    background: rgba(0, 0, 0, 0.95) !important;
+    padding: 30px !important;
+    border: 2px solid #32CD32 !important;
+    border-radius: 8px;
+    box-shadow: 0 0 30px rgba(50, 205, 50, 0.3);
+    width: 100% !important;
+    max-width: 600px !important;
 }
 
 .cardVideo{
@@ -111,8 +145,10 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 1;
+  z-index: 2;
   text-align: center;
+  width: 90%;
+  max-width: 600px;
 }
 
 video{
@@ -120,121 +156,349 @@ video{
   }
 
 .glow:hover {
-    color: #ffffff;
-    background: transparent;
-    cursor: pointer;
-    /* text-shadow:
-    0 0 7px #F6851A,
-    0 0 10px #F6851A,
-    0 0 151px #F6851A; */
-    transform:scale(1.6,1.6);
+    background: #F6851A;
+    color: #000000;
+    box-shadow: 0 0 20px #F6851A(255, 255, 0, 0.5),
+                #F6851A(255, 255, 0, 0.3);
 }
-.info_form{
-    display: flex;
-    flex-direction: column;
-    background-color: transparent;
-    opacity: 0.8;
+
+@keyframes fadeInButton {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
-  .info_form_input{
-    background-color: transparent;
-    margin:10px;
-    height: 40px;
-    border-radius: 3px;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    text-decoration: none;
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.info_form {
+  display: flex;
+  flex-direction: column;
+  background-color: transparent;
+  padding: 20px;
+  width: 100%;
+  max-width: 500px;
+  gap: 15px;
+}
+
+.info_form_input {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 12px 20px;
+  border: 1px solid rgba(246, 133, 26, 0.5);
+  border-radius: 4px;
+  color: #F6851A !important;
+  font-family: 'Courier New', monospace;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: all 0.3s ease;
+}
+
+.info_form_input::placeholder {
+  color: rgba(246, 133, 26, 0.5);
+}
+
+.info_form_input:focus {
+  outline: none;
+  border-color: #F6851A;
+  background-color: rgba(0, 0, 0, 0.9);
+  box-shadow: 
+    0 0 10px rgba(246, 133, 26, 0.4),
+    0 0 20px rgba(246, 133, 26, 0.3),
+    inset 0 0 10px rgba(246, 133, 26, 0.2);
+  animation: inputPulse 1.5s infinite;
+}
+
+@keyframes inputPulse {
+  0% {
+    box-shadow: 
+      0 0 10px rgba(246, 133, 26, 0.4),
+      0 0 20px rgba(246, 133, 26, 0.3),
+      inset 0 0 10px rgba(246, 133, 26, 0.2);
+  }
+  50% {
+    box-shadow: 
+      0 0 15px rgba(246, 133, 26, 0.5),
+      0 0 30px rgba(246, 133, 26, 0.4),
+      inset 0 0 15px rgba(246, 133, 26, 0.3);
+  }
+  100% {
+    box-shadow: 
+      0 0 10px rgba(246, 133, 26, 0.4),
+      0 0 20px rgba(246, 133, 26, 0.3),
+      inset 0 0 10px rgba(246, 133, 26, 0.2);
+  }
+}
+
+textarea.info_form_input {
+  min-height: 120px;
+  resize: vertical;
+  line-height: 1.5;
+}
+
+.info_form_button {
+  background-color: transparent;
+  padding: 12px 24px;
+  border: 1px solid #F6851A;
+  color: #F6851A;
+  font-family: 'Courier New', monospace;
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 10px auto;
+  width: auto;
+  min-width: 200px;
+  text-align: center;
+}
+
+.info_form_button:hover {
+  background-color: #F6851A;
+  color: #000000;
+  box-shadow: 
+    0 0 10px rgba(246, 133, 26, 0.4),
+    0 0 20px rgba(246, 133, 26, 0.3),
+    inset 0 0 10px rgba(246, 133, 26, 0.2);
+  animation: buttonPulse 1.5s infinite;
+}
+
+@keyframes buttonPulse {
+  0% {
+    box-shadow: 
+      0 0 10px rgba(246, 133, 26, 0.4),
+      0 0 20px rgba(246, 133, 26, 0.3);
+  }
+  50% {
+    box-shadow: 
+      0 0 15px rgba(246, 133, 26, 0.5),
+      0 0 30px rgba(246, 133, 26, 0.4);
+  }
+  100% {
+    box-shadow: 
+      0 0 10px rgba(246, 133, 26, 0.4),
+      0 0 20px rgba(246, 133, 26, 0.3);
+  }
+}
+
+.popup-content {
+  margin: auto;
+  background: rgba(0, 0, 0, 0.95) !important;
+  padding: 25px !important;
+  border: 1px solid #F6851A !important;
+  border-radius: 8px;
+  box-shadow: 0 0 30px rgba(246, 133, 26, 0.2);
+  max-width: 90% !important;
+  width: 500px !important;
+}
+
+@media (max-width: 768px) {
+  .glow {
+    font-size: 20px;
+    padding: 12px 24px;
+  }
+
+  .alien {
+    width: 50px;
+    height: 50px;
+    top: 2%;
+    right: 2%;
+  }
+
+  .alien:before,
+  .alien:after {
+    width: 15px;
+    height: 15px;
+  }
+
+  .alien:before {
+    top: 35px;
+    left: 15px;
+  }
+
+  .alien:after {
+    top: 15px;
+    left: 35px;
+  }
+
+  .info_form {
+    padding: 15px;
+  }
+
+  .info_form_input {
+    padding: 10px 16px;
+    font-size: 14px;
+  }
+
+  .info_form_button {
+    padding: 10px 20px;
+    font-size: 16px;
+    min-width: 180px;
+  }
+
+  .popup-content {
+    padding: 20px !important;
+    width: 90% !important;
+  }
+
+  .successMessage {
     font-size: 24px;
-    color:white !important;
+    padding: 15px 20px;
   }
-  .info_form_input:focus{
-      color: #adb5bd;
-      background: transparent;
-      box-shadow: 0 0 10px #F6851A, 0 0 40px #F6851A, 0 0 80px #F6851A;
-  }
-  
-  .info_form_button{
-    background-color: transparent;
-    margin:10px;
-    width: 50%;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    text-decoration: none;
-    font-size: 24px;
-    text-align: center;
-    align-items: center;
-    margin-left: auto;
-    margin-right: auto;
-    color: #caccce;
-  }
-  .info_form_button:hover{
-    color: #adb5bd;
-    background: transparent;
-    box-shadow: 0 0 10px #F6851A, 0 0 40px #F6851A, 0 0 80px #F6851A;
-    cursor: pointer;
+}
+
+@media (max-width: 480px) {
+  .glow {
+    font-size: 16px;
+    padding: 10px 20px;
+    letter-spacing: 1px;
   }
 
-  @media (max-width: 768px) {
-    .glow {
-      font-size: 3vh;
-      padding: 10px 20px;
-    }
-
-    .alien {
-      width: 50px;
-      height: 50px;
-      top: 2%;
-      right: 2%;
-    }
-
-    .alien:before,
-    .alien:after {
-      width: 15px;
-      height: 15px;
-    }
-
-    .alien:before {
-      top: 35px;
-      left: 15px;
-    }
-
-    .alien:after {
-      top: 15px;
-      left: 35px;
-    }
-
-    .info_form_input {
-      font-size: 16px;
-      height: 35px;
-    }
-
-    .info_form_button {
-      font-size: 16px;
-      width: 70%;
-    }
-
-    .successMessage {
-      font-size: 3vh;
-      padding: 10px 20px;
-    }
+  .info_form_input {
+    padding: 8px 12px;
+    font-size: 13px;
+    letter-spacing: 1px;
   }
 
-  @media (max-width: 480px) {
-    .glow {
-      font-size: 2.5vh;
-      padding: 8px 16px;
-    }
-
-    .info_form_input {
-      font-size: 14px;
-      height: 30px;
-    }
-
-    .info_form_button {
-      font-size: 14px;
-    }
-
-    .successMessage {
-      font-size: 2.5vh;
-      padding: 8px 16px;
-    }
+  .info_form_button {
+    padding: 8px 16px;
+    font-size: 14px;
+    min-width: 160px;
+    letter-spacing: 1px;
   }
+
+  .successMessage {
+    font-size: 20px;
+    padding: 12px 16px;
+    letter-spacing: 1px;
+  }
+
+  textarea.info_form_input {
+    min-height: 100px;
+  }
+}
+
+@media (max-width: 320px) {
+  .glow, .successMessage {
+    font-size: 14px;
+    padding: 8px 16px;
+    letter-spacing: 1px;
+  }
+}
+
+/* Update the geometric pattern styles */
+.cardContainer {
+  background-color: #000000;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  scroll-snap-align: start;
+}
+
+.geometric-pattern-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  background-color: #000000;
+}
+
+.rectangle-card {
+  position: absolute;
+  border: 3px solid rgba(246, 133, 26, 0.8);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  opacity: 0;
+  animation: rectangleAnimationCard 8s infinite;
+  box-shadow: 
+    0 0 20px rgba(246, 133, 26, 0.5),
+    0 0 40px rgba(246, 133, 26, 0.3),
+    inset 0 0 20px rgba(246, 133, 26, 0.3);
+}
+
+@keyframes rectangleAnimationCard {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(45deg) scale(0.8);
+  }
+  10% {
+    opacity: 0.6;
+    transform: translate(-50%, -50%) rotate(45deg) scale(1);
+  }
+  20% {
+    opacity: 0.6;
+    transform: translate(-50%, -50%) rotate(45deg) scale(1);
+  }
+  30% {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(45deg) scale(1.2);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(45deg) scale(1.2);
+  }
+}
+
+/* Update rectangle sizes and delays */
+.rectangle-card:nth-child(1) { 
+    width: 800px; 
+    height: 800px; 
+    animation-delay: 0s;
+    border-color: rgba(246, 133, 26, 0.9);
+    box-shadow: 0 0 30px rgba(246, 133, 26, 0.5);
+}
+.rectangle-card:nth-child(2) { 
+    width: 600px; 
+    height: 600px; 
+    animation-delay: 2s;
+    border-color: rgba(246, 133, 26, 0.85);
+    box-shadow: 0 0 25px rgba(246, 133, 26, 0.45);
+}
+.rectangle-card:nth-child(3) { 
+    width: 400px; 
+    height: 400px; 
+    animation-delay: 4s;
+    border-color: rgba(246, 133, 26, 0.8);
+    box-shadow: 0 0 20px rgba(246, 133, 26, 0.4);
+}
+.rectangle-card:nth-child(4) { 
+    width: 200px; 
+    height: 200px; 
+    animation-delay: 6s;
+    border-color: rgba(246, 133, 26, 0.75);
+    box-shadow: 0 0 15px rgba(246, 133, 26, 0.35);
+}
+.rectangle-card:nth-child(5) { 
+    width: 100px; 
+    height: 100px; 
+    animation-delay: 8s;
+    border-color: rgba(246, 133, 26, 0.7);
+    box-shadow: 0 0 10px rgba(246, 133, 26, 0.3);
+}
+
+/* Remove the video styles since we're not using them anymore */
+.cardVideo {
+  display: none;
+}
+
+/* Mobile responsiveness for the pattern */
+@media (max-width: 768px) {
+  .geometric-pattern-card {
+    width: 300px;
+    height: 300px;
+  }
+
+  .rectangle-card:nth-child(1) { width: 300px; height: 300px; }
+  .rectangle-card:nth-child(2) { width: 240px; height: 240px; }
+  .rectangle-card:nth-child(3) { width: 180px; height: 180px; }
+  .rectangle-card:nth-child(4) { width: 120px; height: 120px; }
+  .rectangle-card:nth-child(5) { width: 60px; height: 60px; }
+}

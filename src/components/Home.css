@@ -45,14 +45,52 @@
 .fullpage-container {
     width: 100%;
     height: 100vh;
-    overflow-y: auto;
+    overflow-y: scroll;
     scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+    background-color: #000000;
+    -webkit-overflow-scrolling: touch;
 }
 
 .section {
     height: 100vh;
     scroll-snap-align: start;
     position: relative;
+    overflow: hidden;
+    scroll-snap-stop: always;
+}
+
+/* Ensure content is above the geometric pattern */
+.connectWalletBlock, 
+.background_message_button {
+    position: relative;
+    z-index: 1;
+}
+
+/* Add scroll indicators */
+.scroll-indicator {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    color: #F6851A;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+}
+
+.scroll-indicator:hover {
+    opacity: 1;
+}
+
+/* Hide scrollbar but keep functionality */
+.fullpage-container {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.fullpage-container::-webkit-scrollbar {
+    display: none;
 }
 
 
